@@ -3,7 +3,7 @@
 namespace Paulboco\Powerball\Drawings;
 
 use DateTime;
-use Exception;
+use InvalidArgumentException;
 
 class FileParser
 {
@@ -102,14 +102,14 @@ class FileParser
      * @param  array $parts
      * @return void
      *
-     * @throws Exception
+     * @throws InvalidArgumentException
      */
     private function validatePartsCount($parts)
     {
         $partsCount = count($parts);
 
         if ($partsCount != self::REQUIRED_PARTS_COUNT) {
-            throw new Exception(
+            throw new InvalidArgumentException(
                 sprintf(
                     "A line must parse into %s elements. Found %s",
                     self::REQUIRED_PARTS_COUNT,

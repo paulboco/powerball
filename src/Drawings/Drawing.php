@@ -3,7 +3,7 @@
 namespace Paulboco\Powerball\Drawings;
 
 use DateTime;
-use Exception;
+use LogicException;
 
 class Drawing
 {
@@ -116,7 +116,7 @@ class Drawing
      * @param  string  $key
      * @return mixed
      *
-     * @throws Exception
+     * @throws LogicException
      */
     public function __get($key)
     {
@@ -124,7 +124,7 @@ class Drawing
             return $this->$key;
         }
 
-        throw new Exception(
+        throw new LogicException(
             sprintf("Property '%s' is illegal on class '%s'", $key, self::class)
         );
     }
@@ -136,11 +136,11 @@ class Drawing
      * @param  mixed  $value
      * @return void
      *
-     * @throws Exception
+     * @throws LogicException
      */
     public function __set($key, $value)
     {
-        throw new Exception(
+        throw new LogicException(
             sprintf("Setting properties is illegal on class %s", self::class)
         );
     }
