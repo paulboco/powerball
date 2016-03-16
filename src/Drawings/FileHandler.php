@@ -7,28 +7,42 @@ use Exception;
 class FileHandler
 {
     /**
+     * The file validator instance.
+     *
+     * @var Paulboco\Powerball\Drawings\FileValidator
+     */
+    private $validator;
+
+    /**
+     * The file sizer instance.
+     *
+     * @var Paulboco\Powerball\Drawings\FileSizer
+     */
+    private $sizer;
+
+    /**
      * The URL to the winning numbers text file at powerball.com.
      *
      * @var string
      */
-    private $url = 'http://www.powerball.com/powerball/winnums-text.txt';
+    protected $url = 'http://www.powerball.com/powerball/winnums-text.txt';
 
-    /**
-     * The file header expected in the winning numbers file.
-     *
-     * @var string
-     */
-    const EXPECTED_HEADER = 'Draw Date   WB1 WB2 WB3 WB4 WB5 PB  PP';
+    private $local;
 
     /**
      * Create a new file handler instance.
      *
-     * @param  string|null  $url
+     * @param  Paulboco\Powerball\Drawings\FileValidator  $validator
+     * @param  Paulboco\Powerball\Drawings\FileSizer  $sizer
      * @return void
      */
-    public function __construct($url = null)
+    public function __construct(FileValidator $validator, FileSizer $sizer)
     {
-        $this->url = is_null($url) ? $this->url : $url;
+        $this->validator = $validator;
+        $this->sizer = $sizer;
+        $this->local = $this->urlIsLocalFile();
+
+        $this->validator->validateUrl($this->url, $this->local);
     }
 
     /**
@@ -39,23 +53,31 @@ class FileHandler
     public function getContents()
     {
         $lines = $this->readFile();
-        $this->validateHeader($lines[0]);
+        $this->validator->validateHeader($lines[0], $this->url);
 
         return $lines;
     }
 
     /**
-     * Get the content length of the winning numbers file.
+     * Get the file's content length.
      *
      * @return integer
      */
     public function getContentLength()
     {
-        if ($this->urlIsLocalFile()) {
-            return $this->getLocalFilesize();
-        }
+        return $this->sizer->getContentLength($this->url, $this->local);
+    }
 
-        return $this->getRemoteFilesize();
+    /**
+     * Test if the URL is a local file.
+     *
+     * @return boolean
+     */
+    private function urlIsLocalFile()
+    {
+        $parts = parse_url($this->url);
+
+        return !isset($parts['host']);
     }
 
     /**
@@ -74,72 +96,5 @@ class FileHandler
         }
 
         return $contents;
-    }
-
-    /**
-     * Validate the file header.
-     *
-     * @param  string $header
-     * @return void
-     *
-     * @throws Exception
-     */
-    private function validateHeader($header)
-    {
-        if ($header != self::EXPECTED_HEADER) {
-            throw new Exception(
-                sprintf(
-                    "File '%s' did not contain the expected header '%s'",
-                    $this->url,
-                    self::EXPECTED_HEADER
-                )
-            );
-        }
-    }
-
-    /**
-     * Test if the URL is a local file.
-     *
-     * @return boolean
-     */
-    private function urlIsLocalFile()
-    {
-        $parts = parse_url($this->url);
-
-        return !isset($parts['host']);
-    }
-
-    /**
-     * Get the size of a local file.
-     *
-     * @return integer
-     *
-     * @throws Exception
-     */
-    private function getLocalFilesize()
-    {
-        if (!file_exists($this->url)) {
-            throw new Exception(
-                sprintf(
-                    "Could not get content length from local file '%s'."
-                    . " File does not exist",
-                    $this->url
-                )
-            );
-        }
-
-        return filesize($this->url);
-    }
-
-    /**
-     * Get the size of a remote file.
-     *
-     * @return integer
-     */
-    private function getRemoteFilesize()
-    {
-        $headers = @get_headers($this->url, true);
-
-        return (integer) $headers['Content-Length'];
     }
 }

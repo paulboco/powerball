@@ -8,7 +8,7 @@ use LogicException;
 class Drawing
 {
     /**
-     * The drawing date.
+     * The drawing datetime instance.
      *
      * @var DateTime
      */
