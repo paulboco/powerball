@@ -39,12 +39,15 @@ class FileHandler
      *
      * @param  Paulboco\Powerball\Drawings\FileValidator  $validator
      * @param  Paulboco\Powerball\Drawings\FileSizer  $sizer
+     * @param  string|null  $url
      * @return void
      */
-    public function __construct(FileValidator $validator, FileSizer $sizer)
+    public function __construct(FileValidator $validator, FileSizer $sizer, $url = null)
     {
         $this->validator = $validator;
         $this->sizer = $sizer;
+        $this->url = $url ?: $this->url;
+
         $this->local = $this->urlIsLocalFile();
 
         $this->validator->validateUrl($this->url, $this->local);

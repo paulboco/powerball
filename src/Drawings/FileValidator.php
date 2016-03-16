@@ -48,10 +48,9 @@ class FileValidator
     {
         if ($local) {
             $this->validateLocalUrl($url);
-            return;
+        } else {
+            $this->validateRemoteUrl($url);
         }
-
-        $this->validateRemoteUrl($url);
     }
 
     /**
