@@ -5,13 +5,7 @@ namespace Paulboco\Powerball\Drawings;
 use Exception;
 use LogicException;
 
-require('setup.php');
-
-class Handler extends FileHandler
-{
-    // protected $url = 'http://powerball.app/file_server.php?f=valid';
-    protected $url = '../tests/_files/valid.txt';
-}
+require 'setup.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +46,7 @@ $length2 = $sizer->getContentLength('../tests/_files/valid.txt', true);
 |--------------------------------------------------------------------------
 */
 
-$handler = new Handler(new FileValidator, new FileSizer);
+$handler = new FileHandler(new FileValidator, new FileSizer, 'http://powerball.app/file_server.php?f=valid');
 $length = $handler->getContentLength();
 $contents = $handler->getContents();
 
