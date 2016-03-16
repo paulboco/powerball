@@ -27,6 +27,11 @@ class FileHandler
      */
     protected $url = 'http://www.powerball.com/powerball/winnums-text.txt';
 
+    /**
+     * File is local flag.
+     *
+     * @var boolean
+     */
     private $local;
 
     /**
@@ -69,7 +74,7 @@ class FileHandler
     }
 
     /**
-     * Test if the URL is a local file.
+     * Check if the URL is a local file.
      *
      * @return boolean
      */
