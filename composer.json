@@ -2,7 +2,7 @@
     "name": "paulboco/powerball",
     "description": "Get all drawings from powerball.com.",
     "require": {
-        "php": ">=7.0"
+        "php": ">=5.5.9"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
