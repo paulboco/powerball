@@ -1,5 +1,7 @@
 # Powerball (Beta)
 
+[![Circle CI](https://circleci.com/gh/paulboco/powerball/tree/master.svg?style=shield)](https://circleci.com/gh/paulboco/powerball/tree/master)
+
 Get all drawings from powerball.com.
 
 All Powerball drawings are represented in a text file at the powerball.com website.
