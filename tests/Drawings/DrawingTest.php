@@ -37,7 +37,6 @@ class DrawingTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('LogicException');
 
         $drawing = new Drawing(new DateTime, 1, 2, 3, 4, 5, 6, 7);
-
         $drawing->foo = 'bar';
     }
 
@@ -46,7 +45,6 @@ class DrawingTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('LogicException');
 
         $drawing = new Drawing(new DateTime, 1, 2, 3, 4, 5, 6, 7);
-
         $foo = $drawing->foo;
     }
 }

@@ -16,8 +16,8 @@ class FileValidator
     /**
      * Validate the file header.
      *
-     * @param  string  $header
-     * @param  string  $url
+     * @param  string $header
+     * @param  string $url
      * @return void
      *
      * @throws Exception
@@ -39,7 +39,7 @@ class FileValidator
      * Validate the URL.
      *
      * @param  string  $url
-     * @param  boolean  $local
+     * @param  boolean $local
      * @return void
      *
      * @throws Exception
@@ -56,7 +56,7 @@ class FileValidator
     /**
      * Validate a local URL.
      *
-     * @param  string  $url
+     * @param  string $url
      * @return void
      */
     private function validateLocalUrl($url)
@@ -71,7 +71,7 @@ class FileValidator
     /**
      * Validate a remote URL.
      *
-     * @param  string  $url
+     * @param  string $url
      * @return void
      */
     private function validateRemoteUrl($url)

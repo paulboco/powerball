@@ -66,7 +66,7 @@ class Drawing
     /**
      * Create a new drawing instance.
      *
-     * @param  DateTime  $date
+     * @param  DateTime $date
      * @param  integer  $white_ball_1
      * @param  integer  $white_ball_2
      * @param  integer  $white_ball_3
@@ -113,7 +113,7 @@ class Drawing
     /**
      * Get a drawing property.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return mixed
      *
      * @throws LogicException
@@ -132,7 +132,7 @@ class Drawing
     /**
      * Throw an exception if a property is trying to be set.
      *
-     * @param  string  $key
+     * @param  string $key
      * @param  mixed  $value
      * @return void
      *
