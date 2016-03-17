@@ -37,9 +37,9 @@ class FileHandler
     /**
      * Create a new file handler instance.
      *
-     * @param  Paulboco\Powerball\Drawings\FileValidator $validator
-     * @param  Paulboco\Powerball\Drawings\FileSizer     $sizer
-     * @param  string|null                               $url
+     * @param  Paulboco\Powerball\Drawings\FileValidator  $validator
+     * @param  Paulboco\Powerball\Drawings\FileSizer  $sizer
+     * @param  string|null  $url
      * @return void
      */
     public function __construct(FileValidator $validator, FileSizer $sizer, $url = null)

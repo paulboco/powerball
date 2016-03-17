@@ -32,7 +32,7 @@ class DrawingTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $drawing->toArray());
     }
 
-    public function test_setting_an_property_throws_a_logic_exception()
+    public function test_setting_a_property_throws_a_logic_exception()
     {
         $this->setExpectedException('LogicException');
 
@@ -40,7 +40,7 @@ class DrawingTest extends \PHPUnit_Framework_TestCase
         $drawing->foo = 'bar';
     }
 
-    public function test_getting_an_property_throws_a_logic_exception()
+    public function test_getting_a_property_throws_a_logic_exception()
     {
         $this->setExpectedException('LogicException');
 
