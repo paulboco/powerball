@@ -17,7 +17,7 @@ class FileSizerTest extends \PHPUnit_Framework_TestCase
         $fileSizer = new FileSizer;
         $length = $fileSizer->getContentLength('./tests/_files/valid.txt', true);
 
-        $this->assertEquals(194, $length);
+        $this->assertEquals(189, $length);
     }
 
     public function test_method_get_content_length_throws_an_exception_when_getting_the_length_of_a_non_existant_local_file()

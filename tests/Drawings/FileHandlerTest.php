@@ -30,7 +30,7 @@ class FileHandlerTest extends \PHPUnit_Framework_TestCase
         $fileHandler = $this->FileHandlerFactory($url);
         $length = $fileHandler->getContentLength();
 
-        $this->assertEquals(194, $length);
+        $this->assertEquals(189, $length);
     }
 
     private function FileHandlerFactory($url)
