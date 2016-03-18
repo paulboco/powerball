@@ -2,11 +2,6 @@
 
 namespace Paulboco\Powerball\Drawings;
 
-use Paulboco\Powerball\Drawings\FileSizer;
-use Paulboco\Powerball\Drawings\FileParser;
-use Paulboco\Powerball\Drawings\FileHandler;
-use Paulboco\Powerball\Drawings\FileValidator;
-
 class DrawingsFacade
 {
     /**
