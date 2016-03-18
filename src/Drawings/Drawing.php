@@ -130,7 +130,7 @@ class Drawing
     }
 
     /**
-     * Throw an exception if a property is trying to be set.
+     * Throw an exception when a property is trying to be set.
      *
      * @param  string $key
      * @param  mixed  $value
