@@ -2,9 +2,15 @@
 
 [![Circle CI](https://circleci.com/gh/paulboco/powerball/tree/master.svg?style=shield)](https://circleci.com/gh/paulboco/powerball/tree/master)
 
-Get all drawings from powerball.com.
+All Powerball drawings are available at the powerball.com website in a plain text file.
+This file is updated shortly after each drawing which are held every Wednesday and Saturday night at 10:59 PM.
 
-All Powerball drawings are represented in a text file at the powerball.com website.
-This file is updated shortly after each drawing.
-Drawings are held every Wednesday and Saturday night at precisely 10:59 PM.
+This package parses that text file into an array of Drawing objects.
 
+## Installation
+
+Require this package with composer:
+
+```
+composer require paulboco/powerball
+```
