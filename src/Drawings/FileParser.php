@@ -63,7 +63,7 @@ class FileParser
      * Create a new drawing object from a line.
      *
      * @param  string $line
-     * @return Drawing
+     * @return Paulboco\Powerball\Drawings\Drawing
      */
     private function createNewDrawing($line)
     {
