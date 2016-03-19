@@ -2,7 +2,7 @@
 
 namespace Paulboco\Powerball\Drawings;
 
-class DrawingsFacade
+class DrawingFacade
 {
     /**
      * The file handler instance.
