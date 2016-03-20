@@ -1,6 +1,6 @@
 # Powerball
 
-[![Circle CI](https://circleci.com/gh/paulboco/powerball/tree/master.svg?style=shield)](https://circleci.com/gh/paulboco/powerball/tree/master)
+[![Build Status](https://travis-ci.org/paulboco/powerball.svg?branch=master)](https://travis-ci.org/paulboco/powerball)
 [![Latest Stable Version](https://poser.pugx.org/paulboco/powerball/v/stable)](https://packagist.org/packages/paulboco/powerball)
 [![Total Downloads](https://poser.pugx.org/paulboco/powerball/downloads)](https://packagist.org/packages/paulboco/powerball)
 [![License](https://poser.pugx.org/paulboco/powerball/license)](https://packagist.org/packages/paulboco/powerball)
