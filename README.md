@@ -29,7 +29,7 @@ $drawingFacade = new DrawingFacade();
 $length = $drawingFacade->length();
 $drawings = $drawingFacade->all();
 
-var_dump($drawingFacade, $length, $drawings);
+var_dump($drawings);
 ```
 
 ### Verbose:
@@ -45,7 +45,7 @@ $contents = $fileHandler->getContents();
 $fileParser = new FileParser();
 $drawings = $fileParser->parse($contents);
 
-var_dump($fileHandler, $length, $contents, $fileParser, $drawings);
+var_dump($drawings);
 ```
 
 ### Return:
