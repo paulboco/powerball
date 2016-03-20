@@ -23,6 +23,22 @@ class FileParserTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $drawings[0]);
     }
 
+    public function test_parser_creates_the_required_array_keys()
+    {
+        $parser = new FileParser;
+        $drawings = $parser->parse($this->validData);
+        $drawing = $drawings[0];
+
+        $this->assertArrayHasKey('date', $drawing);
+        $this->assertArrayHasKey('white_ball_1', $drawing);
+        $this->assertArrayHasKey('white_ball_1', $drawing);
+        $this->assertArrayHasKey('white_ball_1', $drawing);
+        $this->assertArrayHasKey('white_ball_1', $drawing);
+        $this->assertArrayHasKey('white_ball_1', $drawing);
+        $this->assertArrayHasKey('power_ball', $drawing);
+        $this->assertArrayHasKey('power_play', $drawing);
+    }
+
     public function test_parser_throws_an_exception_when_parsing_malformed_data()
     {
         $this->setExpectedException('Exception');

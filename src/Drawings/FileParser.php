@@ -60,14 +60,14 @@ class FileParser
         $parts = $this->explodeLineIntoParts($line);
 
         return [
-            $this->createTimestamp($parts[0]),
-            (integer) $parts[1],
-            (integer) $parts[2],
-            (integer) $parts[3],
-            (integer) $parts[4],
-            (integer) $parts[5],
-            (integer) $parts[6],
-            (integer) $parts[7]
+            'date' => $this->createTimestamp($parts[0]),
+            'white_ball_1' => (integer) $parts[1],
+            'white_ball_2' => (integer) $parts[2],
+            'white_ball_3' => (integer) $parts[3],
+            'white_ball_4' => (integer) $parts[4],
+            'white_ball_5' => (integer) $parts[5],
+            'power_ball' => (integer) $parts[6],
+            'power_play' => (integer) $parts[7]
         ];
     }
 
