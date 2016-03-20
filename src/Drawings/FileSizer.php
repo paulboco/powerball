@@ -36,7 +36,7 @@ class FileSizer
             throw new Exception(
                 sprintf(
                     "Could not get content length from local file '%s'."
-                    . " File does not exist",
+                    . ' File does not exist',
                     $url
                 )
             );
@@ -54,6 +54,16 @@ class FileSizer
     private function getRemoteFilesize($url)
     {
         $headers = @get_headers($url, true);
+
+       if (!isset($headers['Content-Length'])) {
+            throw new Exception(
+                sprintf(
+                    "Could not get content length from remote file '%s'."
+                    . " 'Content-Length' header is missing",
+                    $url
+                )
+            );
+        }
 
         return (integer) $headers['Content-Length'];
     }
