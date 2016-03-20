@@ -1,9 +1,7 @@
 # Powerball
 
 [![Circle CI](https://circleci.com/gh/paulboco/powerball/tree/master.svg?style=shield)](https://circleci.com/gh/paulboco/powerball/tree/master)
-[![Latest Stable Version](https://poser.pugx.org/paulboco/powerball/v/stable)](https://packagist.org/packages/paulboco/powerball)
 [![Total Downloads](https://poser.pugx.org/paulboco/powerball/downloads)](https://packagist.org/packages/paulboco/powerball)
-[![Latest Unstable Version](https://poser.pugx.org/paulboco/powerball/v/unstable)](https://packagist.org/packages/paulboco/powerball)
 [![License](https://poser.pugx.org/paulboco/powerball/license)](https://packagist.org/packages/paulboco/powerball)
 
 All Powerball drawings are available at the powerball.com website in a plain text file.
