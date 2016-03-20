@@ -39,19 +39,17 @@ class DrawingFacade
     {
         $contents = $this->handler->getContents();
 
-        return $this->parser->parseToDrawing($contents);
+        return $this->parser->parse($contents);
     }
 
     /**
-     * Get all drawings as an array of arrays.
+     * Get the content length of the winning numbers file.
      *
-     * @return array
+     * @return integer
      */
-    public function allToArray()
+    public function length()
     {
-        $contents = $this->handler->getContents();
-
-        return $this->parser->parseToArray($contents);
+        return $this->handler->getContentLength();
     }
 
     /**

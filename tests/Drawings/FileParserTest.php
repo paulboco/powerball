@@ -15,18 +15,10 @@ class FileParserTest extends \PHPUnit_Framework_TestCase
         '02/0235 01 02',
     ];
 
-    public function test_parser_returns_an_array_of_drawings()
-    {
-        $parser = new FileParser;
-        $drawings = $parser->parseToDrawing($this->validData);
-
-        $this->assertInstanceOf('Paulboco\Powerball\Drawings\Drawing', $drawings[0]);
-    }
-
     public function test_parser_returns_an_array_of_arrays()
     {
         $parser = new FileParser;
-        $drawings = $parser->parseToArray($this->validData);
+        $drawings = $parser->parse($this->validData);
 
         $this->assertInternalType('array', $drawings[0]);
     }
@@ -36,6 +28,6 @@ class FileParserTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('Exception');
 
         $parser = new FileParser;
-        $drawings = $parser->parseToArray($this->badData);
+        $drawings = $parser->parse($this->badData);
     }
 }

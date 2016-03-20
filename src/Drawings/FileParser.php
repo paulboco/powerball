@@ -15,34 +15,17 @@ class FileParser
     const REQUIRED_PARTS_COUNT = 8;
 
     /**
-     * Parse each line of the winning numbers file into a drawing object.
-     *
-     * @param  array $lines
-     * @return array
-     */
-    public function parseToDrawing($lines)
-    {
-        $lines = $this->deleteHeader($lines);
-
-        foreach ($lines as $key => $line) {
-            $lines[$key] = $this->createNewDrawing($line);
-        }
-
-        return $lines;
-    }
-
-    /**
      * Parse each line of the winning numbers file into an array.
      *
      * @param  array $lines
      * @return array
      */
-    public function parseToArray($lines)
+    public function parse($lines)
     {
         $lines = $this->deleteHeader($lines);
 
         foreach ($lines as $key => $line) {
-            $lines[$key] = $this->createNewDrawing($line)->toArray();
+            $lines[$key] = $this->parseDrawing($line);
         }
 
         return $lines;
@@ -60,17 +43,17 @@ class FileParser
     }
 
     /**
-     * Create a new drawing object from a line.
+     * Parse a single drawing from a line.
      *
      * @param  string $line
-     * @return Paulboco\Powerball\Drawings\Drawing
+     * @return array
      */
-    private function createNewDrawing($line)
+    private function parseDrawing($line)
     {
         $parts = $this->explodeLineIntoParts($line);
 
-        return new Drawing(
-            DateTime::createFromFormat('m/d/Y', $parts[0]),
+        return [
+            $this->createTimestamp($parts[0]),
             (integer) $parts[1],
             (integer) $parts[2],
             (integer) $parts[3],
@@ -78,7 +61,7 @@ class FileParser
             (integer) $parts[5],
             (integer) $parts[6],
             (integer) $parts[7]
-        );
+        ];
     }
 
     /**
@@ -117,5 +100,16 @@ class FileParser
                 )
             );
         }
+    }
+
+    /**
+     * Create a timestamp from a date string.
+     *
+     * @param  string  $date
+     * @return integer
+     */
+    private function createTimestamp($date)
+    {
+        return DateTime::createFromFormat('m/d/Y', $date)->setTime(23, 0);
     }
 }
