@@ -8,6 +8,13 @@ use Exception;
 class FileParser
 {
     /**
+     * The date format used in the powerball file.
+     *
+     * @var string
+     */
+    const POWERBALL_DATE_FORMAT = 'm/d/Y';
+
+    /**
      * The required number of parts in an exploded line.
      *
      * @var integer
@@ -110,6 +117,8 @@ class FileParser
      */
     private function createTimestamp($date)
     {
-        return DateTime::createFromFormat('m/d/Y', $date)->setTime(23, 0);
+        return DateTime::createFromFormat(self::POWERBALL_DATE_FORMAT, $date)
+                ->setTime(23, 0)
+                ->getTimestamp();
     }
 }
