@@ -1,5 +1,5 @@
-# Changelog
+# Powerball Change Log
 
-## 1.0.0 - 2016-03-19
+## Version 1.0.1
 
-### First Release
+- Throw exception for missing ```Content-Length``` header on remote file
