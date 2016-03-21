@@ -12,10 +12,10 @@
 
 - Change method name in file parser
 
-## Version 2.1.0
+## Version 2.0.1
 
 - Change date format from unix timestamp to 'Y-m-d'
 
-## Version 2.1.1
+## Version 2.0.2
 
 - Sort drawings by date in ascending order
