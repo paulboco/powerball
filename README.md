@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/paulboco/powerball/license)](https://packagist.org/packages/paulboco/powerball)
 
 All Powerball drawings are available at the powerball.com website in a plain text file.
-This file is updated shortly after each drawing which occurs at 10:59 PM on Wednesday and Saturday nights.
+This file is updated shortly after each drawing which occurs at 10:59 p.m. Eastern Time on Wednesday and Saturday nights.
 
 This package parses that text file into an array.
 
@@ -49,15 +49,15 @@ var_dump($length, $drawings);
 ```
 
 ### Return:
-The parser returns an array of arrays with each structured as:
+The parser returns an array of arrays - each structured as follows:
 ```php
     array (size=8)
-      0 => int 1455404400
-      1 => int 7
-      2 => int 15
-      3 => int 36
-      4 => int 18
-      5 => int 19
-      6 => int 20
-      7 => int 2
+      'date' => int 1458442800
+      'white_ball_1' => int 11
+      'white_ball_2' => int 60
+      'white_ball_3' => int 23
+      'white_ball_4' => int 54
+      'white_ball_5' => int 43
+      'power_ball' => int 3
+      'power_play' => int 3
 ```
