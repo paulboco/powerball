@@ -51,13 +51,14 @@ var_dump($length, $drawings);
 ### Return:
 The parser returns an array of arrays - each structured as follows:
 ```php
-    array (size=8)
-      'date' => int 1458442800
-      'white_ball_1' => int 11
-      'white_ball_2' => int 60
-      'white_ball_3' => int 23
-      'white_ball_4' => int 54
-      'white_ball_5' => int 43
-      'power_ball' => int 3
-      'power_play' => int 3
+$drawing = [
+    'date' => 1458442800,
+    'white_ball_1' => 11,
+    'white_ball_2' => 60,
+    'white_ball_3' => 23,
+    'white_ball_4' => 54,
+    'white_ball_5' => 43,
+    'power_ball' => 3,
+    'power_play' => 3,
+];
 ```
