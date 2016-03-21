@@ -40,16 +40,17 @@ namespace Paulboco\Powerball\Drawings;
 
 $fileHandler = new FileHandler(new FileValidator, new FileSizer);
 $length = $fileHandler->getContentLength();
-$contents = $fileHandler->getContents();
+$content = $fileHandler->getContent();
 
 $fileParser = new FileParser();
-$drawings = $fileParser->parse($contents);
+$drawings = $fileParser->parse($content);
 
 var_dump($length, $drawings);
 ```
 
 ### Return:
-The parser returns an array of arrays - each structured as follows:
+The parser returns an array where each element represents a powerball drawing.
+Each drawing is an array structured as:
 ```php
 $drawing = [
     'date' => 1458442800,

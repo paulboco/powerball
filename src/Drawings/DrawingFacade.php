@@ -31,15 +31,15 @@ class DrawingFacade
     }
 
     /**
-     * Get all drawings as an array of drawing objects.
+     * Get all drawings as an array of arrays.
      *
      * @return array
      */
     public function all()
     {
-        $contents = $this->handler->getContents();
+        $content = $this->handler->getContent();
 
-        return $this->parser->parse($contents);
+        return $this->parser->parse($content);
     }
 
     /**

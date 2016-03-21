@@ -54,11 +54,11 @@ class FileHandler
     }
 
     /**
-     * Return the contents of the file as an array of file lines.
+     * Return the file content as an array of file lines.
      *
      * @return array
      */
-    public function getContents()
+    public function getContent()
     {
         $lines = $this->readFile();
         $this->validator->validateHeader($lines[0], $this->url);
@@ -97,12 +97,12 @@ class FileHandler
      */
     private function readFile()
     {
-        $contents = file($this->url, FILE_IGNORE_NEW_LINES);
+        $lines = file($this->url, FILE_IGNORE_NEW_LINES);
 
-        if (empty($contents)) {
+        if (empty($lines)) {
             throw new Exception(sprintf("File '%s' is empty", $this->url));
         }
 
-        return $contents;
+        return $lines;
     }
 }

@@ -10,9 +10,9 @@ class FileHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $url = './tests/_files/valid.txt';
         $fileHandler = $this->FileHandlerFactory($url);
-        $fileLines = $fileHandler->getContents();
+        $lines = $fileHandler->getContent();
 
-        $this->assertCount(5, $fileLines);
+        $this->assertCount(5, $lines);
     }
 
     public function test_method_throws_exception_for_empty_file()
@@ -21,16 +21,16 @@ class FileHandlerTest extends \PHPUnit_Framework_TestCase
 
         $url = './tests/_files/empty.txt';
         $fileHandler = $this->FileHandlerFactory($url);
-        $fileHandler->getContents();
+        $fileHandler->getContent();
     }
 
     public function test_method_successfully_gets_the_content_length()
     {
         $url = './tests/_files/valid.txt';
         $fileHandler = $this->FileHandlerFactory($url);
-        $length = $fileHandler->getContentLength();
+        $contentLength = $fileHandler->getContentLength();
 
-        $this->assertEquals(189, $length);
+        $this->assertEquals(189, $contentLength);
     }
 
     private function FileHandlerFactory($url)
