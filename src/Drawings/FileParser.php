@@ -4,6 +4,7 @@ namespace Paulboco\Powerball\Drawings;
 
 use DateTime;
 use Exception;
+use DateTimeZone;
 
 class FileParser
 {
@@ -118,6 +119,7 @@ class FileParser
     private function createTimestamp($date)
     {
         return DateTime::createFromFormat(self::POWERBALL_DATE_FORMAT, $date)
+                ->setTimeZone(new DateTimeZone('America/New_York'))
                 ->setTime(23, 0)
                 ->getTimestamp();
     }
