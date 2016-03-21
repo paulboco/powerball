@@ -53,7 +53,7 @@ The parser returns an array where each element represents a powerball drawing.
 Each drawing is an array structured as:
 ```php
 $drawing = [
-    'date' => 1458442800,
+    'date' => '2016-03-19',
     'white_ball_1' => 11,
     'white_ball_2' => 60,
     'white_ball_3' => 23,

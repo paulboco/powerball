@@ -4,7 +4,6 @@ namespace Paulboco\Powerball\Drawings;
 
 use DateTime;
 use Exception;
-use DateTimeZone;
 
 class FileParser
 {
@@ -61,7 +60,7 @@ class FileParser
         $parts = $this->explodeLineIntoParts($line);
 
         return [
-            'date' => $this->createTimestamp($parts[0]),
+            'date' => $this->reformatDate($parts[0]),
             'white_ball_1' => (integer) $parts[1],
             'white_ball_2' => (integer) $parts[2],
             'white_ball_3' => (integer) $parts[3],
@@ -111,16 +110,14 @@ class FileParser
     }
 
     /**
-     * Create a timestamp from a date string.
+     * Reformat date from 'm/d/Y' to 'Y-m-d'.
      *
      * @param  string  $date
      * @return integer
      */
-    private function createTimestamp($date)
+    private function reformatDate($date)
     {
         return DateTime::createFromFormat(self::POWERBALL_DATE_FORMAT, $date)
-                ->setTimeZone(new DateTimeZone('America/New_York'))
-                ->setTime(23, 0)
-                ->getTimestamp();
+                    ->format('Y-m-d');
     }
 }

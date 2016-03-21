@@ -39,17 +39,6 @@ class FileParserTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('power_play', $drawing);
     }
 
-    public function test_timestamp_converts_to_11pm_eastern_time()
-    {
-        $parser = new FileParser;
-        $drawings = $parser->parse($this->validData);
-        $date = $drawings[0]['date'];
-        $dateTime = (new DateTime)->setTimeStamp($date);
-        $dateTime->setTimeZone(new DateTimeZone('America/New_York'));
-
-        $this->assertEquals('23:00:00', $dateTime->format('H:i:s'));
-    }
-
     public function test_parser_throws_an_exception_when_parsing_malformed_data()
     {
         $this->setExpectedException('Exception');

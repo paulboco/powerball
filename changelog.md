@@ -11,3 +11,7 @@
 ## Version 2.0.0
 
 - Change method name in file parser
+
+## Version 3.0.0
+
+- Change date format from unix timestamp to 'Y-m-d'
