@@ -31,6 +31,8 @@ class FileParser
     {
         $lines = $this->deleteHeader($lines);
 
+        $lines = array_reverse($lines);
+
         foreach ($lines as $key => $line) {
             $lines[$key] = $this->parseDrawing($line);
         }

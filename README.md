@@ -50,7 +50,7 @@ var_dump($length, $drawings);
 
 ### Return:
 The parser returns an array where each element represents a powerball drawing.
-Each drawing is an array structured as:
+Drawings are in ascending order by date and each is structured as:
 ```php
 $drawing = [
     'date' => '2016-03-19',
