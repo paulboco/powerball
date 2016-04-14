@@ -54,11 +54,11 @@ Drawings are in ascending order by date and each is structured as:
 ```php
 $drawing = [
     'date' => '2016-03-19',
-    'white_ball_1' => 11,
-    'white_ball_2' => 60,
-    'white_ball_3' => 23,
-    'white_ball_4' => 54,
-    'white_ball_5' => 43,
+    'ball_1' => 11,
+    'ball_2' => 60,
+    'ball_3' => 23,
+    'ball_4' => 54,
+    'ball_5' => 43,
     'power_ball' => 3,
     'power_play' => 3,
 ];

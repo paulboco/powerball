@@ -35,11 +35,11 @@ class DrawingFacade
      *
      * @return array
      */
-    public function all()
+    public function all($reverse = false)
     {
         $content = $this->handler->getContent();
 
-        return $this->parser->parse($content);
+        return $this->parser->parse($content, $reverse);
     }
 
     /**

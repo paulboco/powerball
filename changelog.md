@@ -19,3 +19,8 @@
 ## Version 2.0.2
 
 - Sort drawings by date in ascending order
+
+## Version 3.0.0
+
+- Rename fields ```white_ball_n``` to ```ball_n```
+- Provide option to reverse sorting

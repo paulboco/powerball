@@ -25,13 +25,16 @@ class FileParser
      * Parse each line of the winning numbers file into an array.
      *
      * @param  array $lines
+     * @param  boolean  $reverse
      * @return array
      */
-    public function parse($lines)
+    public function parse($lines, $reverse = false)
     {
         $lines = $this->deleteHeader($lines);
 
-        $lines = array_reverse($lines);
+        if ($reverse) {
+            $lines = array_reverse($lines);
+        }
 
         foreach ($lines as $key => $line) {
             $lines[$key] = $this->parseDrawing($line);
@@ -63,11 +66,11 @@ class FileParser
 
         return [
             'date' => $this->reformatDate($parts[0]),
-            'white_ball_1' => (integer) $parts[1],
-            'white_ball_2' => (integer) $parts[2],
-            'white_ball_3' => (integer) $parts[3],
-            'white_ball_4' => (integer) $parts[4],
-            'white_ball_5' => (integer) $parts[5],
+            'ball_1' => (integer) $parts[1],
+            'ball_2' => (integer) $parts[2],
+            'ball_3' => (integer) $parts[3],
+            'ball_4' => (integer) $parts[4],
+            'ball_5' => (integer) $parts[5],
             'power_ball' => (integer) $parts[6],
             'power_play' => (integer) $parts[7]
         ];
@@ -120,6 +123,6 @@ class FileParser
     private function reformatDate($date)
     {
         return DateTime::createFromFormat(self::POWERBALL_DATE_FORMAT, $date)
-                    ->format('Y-m-d');
+                        ->format('Y-m-d');
     }
 }
